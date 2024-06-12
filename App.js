@@ -100,6 +100,27 @@ import { StyleSheet, Text, View, Image} from 'react-native'
 import React from 'react'
 
 const App = () => {
+  const ButtonCostum = ({color, text}) => {
+    return(
+      <View style={{
+        backgroundColor : color,
+        width : 120,
+        height : 80,
+        borderRadius : 20,
+        justifyContent : 'center'
+
+
+      }}>
+        <Text style={{
+          textAlign : 'center',
+          fontSize : 30,
+          color : 'white',
+          fontWeight : 'bold'
+        }}>{text}
+        </Text>
+    </View>
+    )}
+  
   return(
     <View style={{flex : 1}}>
       <View style={{
@@ -133,43 +154,9 @@ const App = () => {
     justifyContent : 'space-evenly'
 
     }}>
-
-      <View style={{
-        backgroundColor : 'green',
-        width : 120,
-        height : 80,
-        borderRadius : 20,
-        justifyContent : 'center'
-
-      }}>
-        <Text style={{
-          textAlign : 'center',
-          fontSize : 30,
-          color : 'white',
-          fontWeight : 'bold'
-        }}>Login
-        </Text>
-      </View>
-
-
-      <View style={{
-        backgroundColor : 'blue',
-        width : 120,
-        height : 80,
-        borderRadius : 20,
-        justifyContent : 'center'
-
-      }}>
-         <Text style={{
-          textAlign : 'center',
-          fontSize : 30,
-          color : 'white',
-          fontWeight : 'bold'
-         }}>Sign Up
-         </Text>
-      </View>
-
-
+<ButtonCostum color = 'yellow' text='login' />
+<ButtonCostum color = 'silver' text='SigUp' />
+      
     </View>
 
   </View>
