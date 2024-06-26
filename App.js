@@ -14,67 +14,33 @@ const App =() => {
         }}>
           14:12
         </Text>
-        <Text syle ={{
+        <Text style ={{
           fontSize : 20, fontWeight : 'bold', marginLeft : 20
         }}>
-          Login
+          {'<'}
+        </Text>
+        <Text style ={{
+          fontSize : 30, fontWeight : 'bold', marginLeft : 25
+        }}>
+          Forgot Password
         </Text>
      </View>
 
      <View style ={{
-      flex : 1, flexDirection : 'column', alignItems : 'center', marginTop : 78,
+      flex : 1, flexDirection : 'column', alignItems : 'center', marginTop : 80,
      }}>
+      <Text style ={{
+          fontSize : 20, marginLeft : 25, marginRight : 25, marginBottom : 30
+        }}>Enter your email address. You will get a link to set a new password via email.
+        </Text>
       <TextInputCostum name = "Email"/>
-      <TextInputCostum name = "Password"/>
-      <Text style ={{
-        fontSize : 14, fontWeight : 'bold', marginTop : 10, marginBottom : 32, textAlign : 'right', marginLeft : 177
+      <Text style={{
+        marginBottom : 50
       }}>
-        Already have an account?
       </Text>
-      <ButtonCostum text = "LOGIN" color= 'black' borderRadius= {31}/>
-
-
+      <ButtonCostum text = "SEND" color= 'black' borde= {31} />
+      
      </View>
-
-     <View style ={{
-      flext : 1, alignItems : 'center', justifyContent : 'flex-start',
-     }}>
-      <Text style ={{
-        fontWeight : 'bold', marginTop : 300
-      }}>
-        Or login with social account
-      </Text>
-     <View style ={{
-      flex : 1,
-      flexDirection : 'row', justifyContent : 'space-evenly', marginTop : 22
-     }}>
-       <View style ={{
-        backgroundColor : '#eeeeee', borderRadius : 60, justifyContent : 'center', width : 50, height : 50, alignItems : 'center'
-      }}>
-        <Image source={require('./Google.png') }
-        style={{ width : 40, height : 40, alignItems : 'center'
-        }}/>
-      </View>
-
-
-      <View style ={{
-        backgroundColor : '#eeeeee', borderRadius : 60, justifyContent : 'center', width : 50, height : 50, alignItems : 'center'
-      }}>
-        <Image source={require('./IG.png') }
-        style={{ width : 40, height : 40, alignItems : 'center'
-        }}/>
-      </View>
-
-      <View style ={{
-        backgroundColor : '#eeeeee', borderRadius : 60, justifyContent : 'center', width : 50, height : 50, alignItems : 'center'
-      }}>
-        <Image source={require('./FB.png') }
-        style={{ width : 40, height : 40, alignItems : 'center'
-        }}/>
-      </View>
-
-    </View>
-  </View>
 
 </View>
   )
