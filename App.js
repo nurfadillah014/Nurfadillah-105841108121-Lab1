@@ -1,88 +1,30 @@
-import * as React from 'react';
-import { View, Text, Button, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import LoginPages from './LoginPages';
-import SignUpPages from './SignUpPages';
-import shopaktif from './shop aktif.png';
-import shopnonaktif from './shop non aktif.png';
-import homeaktif from './home aktif.png';
-import home from './home.png';
+import { useFonts} from 'expo-font'
+import { View, Text } from 'react-native';
 
-const Tab = createBottomTabNavigator();
+export default function App() {
+  const [dapatFont] = useFonts({
+    'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
+    'MetroBold': require('././assets/fonts/Metropolis-Bold.otf'),
+    'MetroLight': require('././assets/fonts/Metropolis-Light.otf'),
+    'MetroMedium': require('././assets/fonts/Metropolis-Medium.otf'),
+    'MetroSemiBold': require('././assets/fonts/Metropolis-SemiBold.otf'),
+  });
 
-function MyTabs() {
+  if (!dapatFont) {
+    return <Text> font tidak ditemukan...</Text>
+  }
+
   return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <Image
-              source={focused ? homeaktif : home}
-              style={{ width: 40, height: 40 }}
-            />
-          ),
-        }}
-      />
-        <Tab.Screen
-         name="Sign Up"
-         component={SignUpPages}
-         options={{
-           headerShown: false,
-           tabBarIcon: ({ focused }) => (
-             <Image
-               source={focused ? shopaktif : shopnonaktif}
-               style={{ width: 40, height: 40 }}
-             />
-           ),
-         }}
-       />
-      <Tab.Screen
-        name="Login"
-        component={LoginPages}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <Image
-              source={focused ? shopaktif : shopnonaktif}
-              style={{ width: 40, height: 40 }}
-            />
-          ),
-        }}
-      />
-      
-    </Tab.Navigator>
-  );
-}
-
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Sign Up"
-        onPress={() => navigation.navigate('Login')}
-      />
+    <View style={{
+      flext:1,
+      justifyContent : "center",
+      alignItems : "center",
+    }}>
+      <Text style = {{fontFamily : 'Metroblack'}}>font metropolis black</Text>
+      <Text style = {{fontFamily : 'MetroBold'}}>font metropolis bold</Text>
+      <Text style = {{fontFamily : 'MetroLight'}}>font metropolis Light</Text>
+      <Text style = {{fontFamily : 'MetroMedium'}}>font metropolis Medium</Text>
+      <Text style = {{fontFamily : 'MetroSemiBold'}}>font metropolis SemiBold</Text>
     </View>
-  );
+  )
 }
-
-const Stack = createNativeStackNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={MyTabs} />
-        <Stack.Screen name="Login" component={LoginPages} />
-        <Stack.Screen name="SignUp" component={SignUpPages} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
-
-export default App;
