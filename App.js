@@ -1,30 +1,42 @@
-import { useFonts} from 'expo-font'
-import { View, Text } from 'react-native';
-
-export default function App() {
-  const [dapatFont] = useFonts({
-    'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
-    'MetroBold': require('././assets/fonts/Metropolis-Bold.otf'),
-    'MetroLight': require('././assets/fonts/Metropolis-Light.otf'),
-    'MetroMedium': require('././assets/fonts/Metropolis-Medium.otf'),
-    'MetroSemiBold': require('././assets/fonts/Metropolis-SemiBold.otf'),
-  });
-
-  if (!dapatFont) {
-    return <Text> font tidak ditemukan...</Text>
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
+import React, { useState } from 'react'
+const App = () => {
+  const [formLogin, setForm] = useState({
+    email: '',
+    password: ''
+  })
+  const onSubmit = () => {
+    if (formLogin.email === 'dilla' && formLogin.password === '000') {
+      alert('Login Berhasil')
+    }else{
+      alert('Login Gagal')
+    }
   }
-
   return (
-    <View style={{
-      flext:1,
-      justifyContent : "center",
-      alignItems : "center",
-    }}>
-      <Text style = {{fontFamily : 'Metroblack'}}>font metropolis black</Text>
-      <Text style = {{fontFamily : 'MetroBold'}}>font metropolis bold</Text>
-      <Text style = {{fontFamily : 'MetroLight'}}>font metropolis Light</Text>
-      <Text style = {{fontFamily : 'MetroMedium'}}>font metropolis Medium</Text>
-      <Text style = {{fontFamily : 'MetroSemiBold'}}>font metropolis SemiBold</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Form Login</Text>
+      <View>
+        <Text>Email</Text>
+        <TextInput
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+          onChangeText={(hasil) => setForm({ ...formLogin, email: hasil })}
+          value={formLogin.email}
+        />
+        <Text>Password</Text>
+        <TextInput
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+          onChangeText={(text) => setForm({ ...formLogin, password: text })}
+          value={formLogin.password}
+        />
+        <View style={{ marginTop: 10 }}>
+          <Button title="Login" onPress={onSubmit} />
+        </View>
+        <View>
+          <Text>Email: {formLogin.email}</Text>
+          <Text>Password: {formLogin.password}</Text>
+        </View>
+      </View>
     </View>
   )
 }
+export default App
