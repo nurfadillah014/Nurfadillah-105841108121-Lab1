@@ -1,27 +1,27 @@
-import { StyleSheet, Text, View, Image} from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { Button } from 'react-native-web'
 
-
-const ButtonCostum = ({color, text}) => {
-    return(
+const ButtonCostum = ({ color, text, onPress }) => {
+  return (
+    <TouchableOpacity onPress={onPress}>
       <View style={{
-        backgroundColor : color,
-        width : 120,
-        height : 80,
-        borderRadius : 20,
-        justifyContent : 'center'
-
-
+        backgroundColor: color,
+        width: 350,
+        height: 80,
+        borderRadius: 20,
+        justifyContent: 'center',
       }}>
         <Text style={{
-          textAlign : 'center',
-          fontSize : 30,
-          color : 'white',
-          fontWeight : 'bold'
-        }}>{text}
+          textAlign: 'center',
+          fontSize: 30,
+          color: 'white',
+          fontWeight: 'bold',
+        }}>
+          {text}
         </Text>
-    </View>
-    )}
-  
-export default ButtonCostum
+      </View>
+    </TouchableOpacity>
+  )
+}
+
+export default ButtonCostum;
